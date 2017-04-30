@@ -1,8 +1,14 @@
+import pandas as pd
 
 #read gene expression data
-# df = preprocess.read_gex
+gex_file = "./data/exp/prostate1_geneMatrix.tsv"
+df = pd.read_csv(gex_file,sep='\t',index_col=0)
+
 #read context label data
-# context_label_list = preprocess.read_context_label
+with open("./data/exp/prostate_context_label.tsv",'r') as r:
+    for line in r:
+        context_label_list = line.strip().split("\t")
+
 #read pathway data (KEGG, NCI-PID, reactome), dict
 # pathway = dict{'readtome : ['a','b','c']}
 
